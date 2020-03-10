@@ -1,24 +1,29 @@
 package it.polito.tdp.parole.model;
 
-import java.util.List;
+import java.util.*;
 
 public class Parole {
-		
+	Map<String,String> mappaParole;
 	public Parole() {
-		//TODO
+		mappaParole=new TreeMap<String,String>();
 	}
 	
 	public void addParola(String p) {
-		//TODO
+		mappaParole.put(p, p);
 	}
 	
 	public List<String> getElenco() {
-		//TODO
-		return null;
+		List<String> listaParole=new ArrayList<String>(mappaParole.values());
+		return listaParole;
 	}
 	
 	public void reset() {
-		// TODO
+		mappaParole.clear();
 	}
 
+	public void elimina(String p)
+	{
+		if(mappaParole.containsKey(p))
+			mappaParole.remove(p);
+	}
 }
